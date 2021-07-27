@@ -1477,7 +1477,7 @@ sdiff &lt;key1&gt;&lt;key2&gt;返回两个集合的差集元素(key1中的，不
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('1'),
-            headingSelector: 'h2, h4 ,h6'
+            headingSelector: 'h1, h5'
         });
 
         // modify the toc link href to support Chinese.
@@ -1489,7 +1489,7 @@ sdiff &lt;key1&gt;&lt;key2&gt;返回两个集合的差集元素(key1中的，不
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h4 ,h6').each(function () {
+        $('#articleContent').children('h1, h5').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
