@@ -1371,7 +1371,7 @@ https://github.com/Z4Tech/hexo-tag-bilibili<span aria-hidden="true" class="line-
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h1,h3,h5'
+            headingSelector: 'h3,h5'
         });
 
         // modify the toc link href to support Chinese.
@@ -1383,7 +1383,7 @@ https://github.com/Z4Tech/hexo-tag-bilibili<span aria-hidden="true" class="line-
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h1,h3,h5').each(function () {
+        $('#articleContent').children('h3,h5').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 

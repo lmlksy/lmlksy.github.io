@@ -2025,7 +2025,7 @@ HASH，就是一个KEY对应一个值，一个指针，指向了一个区域。 
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h1,h3,h5'
+            headingSelector: 'h3,h5'
         });
 
         // modify the toc link href to support Chinese.
@@ -2037,7 +2037,7 @@ HASH，就是一个KEY对应一个值，一个指针，指向了一个区域。 
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h1,h3,h5').each(function () {
+        $('#articleContent').children('h3,h5').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
