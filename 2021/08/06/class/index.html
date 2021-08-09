@@ -454,10 +454,104 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lmlksy/lmlksy.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -574,9 +668,7 @@
       这个对象包含了类的完整结构信息。通过这个对象得到类的结构。这个对象就像一面
       镜子，通过这个镜子看到类的结构,所以形象的称之为:反射。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<blockquote>
-<h5 id="java计算机的3个阶段"><a href="#java计算机的3个阶段" class="headerlink" title="java计算机的3个阶段"></a>java计算机的3个阶段</h5></blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1.</span> <span class="token punctuation">(</span>代码<span class="token punctuation">)</span>编译阶段<span class="token operator">:</span>java程序通过javac编译成<span class="token keyword">class</span>字节码文件 
+<h5 id="java计算机的3个阶段"><a href="#java计算机的3个阶段" class="headerlink" title="java计算机的3个阶段"></a>java计算机的3个阶段</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1.</span> <span class="token punctuation">(</span>代码<span class="token punctuation">)</span>编译阶段<span class="token operator">:</span>java程序通过javac编译成<span class="token keyword">class</span>字节码文件 
 <span class="token operator">==</span><span class="token operator">=</span><span class="token operator">&gt;</span>类加载器<span class="token class-name">ClassLoader</span><span class="token operator">:</span> <span class="token keyword">class</span>字节码<span class="token operator">-&gt;</span> <span class="token class-name">Class</span>类对象
 <span class="token number">2.</span> <span class="token punctuation">(</span><span class="token class-name">Class</span>类阶段<span class="token punctuation">)</span>加载阶段<span class="token operator">:</span>在堆中生成一个<span class="token class-name">Class</span>类对象<span class="token punctuation">,</span>拥有与对象对应的所有属性
 <span class="token operator">&lt;=</span><span class="token operator">==</span><span class="token operator">&gt;</span> 双面映射对象知道它属于那个<span class="token class-name">Class</span>对象
@@ -591,9 +683,7 @@
 <span class="token operator">--</span>  java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token operator">:</span>位置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://gitee.com/lml000/tuc/raw/master/images/image-20210729141820549.png" alt="image-20210729141820549"></p>
-<blockquote>
-<h5 id="反射优缺点及优化"><a href="#反射优缺点及优化" class="headerlink" title="反射优缺点及优化"></a>反射优缺点及优化</h5></blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">优点<span class="token operator">--</span>可以动态创建和使用对象<span class="token punctuation">(</span>框架底层核心<span class="token punctuation">,</span>使用灵活<span class="token punctuation">)</span>
+<h5 id="反射优缺点及优化"><a href="#反射优缺点及优化" class="headerlink" title="反射优缺点及优化"></a>反射优缺点及优化</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java">优点<span class="token operator">--</span>可以动态创建和使用对象<span class="token punctuation">(</span>框架底层核心<span class="token punctuation">,</span>使用灵活<span class="token punctuation">)</span>
 缺点<span class="token operator">--</span>使用反射基本时解释执行<span class="token punctuation">,</span>对执行速度有影响
 优化<span class="token operator">--</span>关闭访问检查
     <span class="token class-name">Method</span>和<span class="token class-name">Field</span>、<span class="token class-name">Constructor</span>对象都有<span class="token class-name">SetAccessible</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法
@@ -601,9 +691,7 @@
     参数值为<span class="token boolean">true</span>表示取消访问坚持
     <span class="token class-name">SetAccessible</span>方法继承<span class="token class-name">AccessibleObject</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="1-3-Class类对象分析"><a href="#1-3-Class类对象分析" class="headerlink" title="1.3 Class类对象分析"></a>1.3 Class类对象分析</h3><blockquote>
-<h5 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h5></blockquote>
-<pre class="line-numbers language-none"><code class="language-none">1.Class也是一个类继承与Object
+<h3 id="1-3-Class类对象分析"><a href="#1-3-Class类对象分析" class="headerlink" title="1.3 Class类对象分析"></a>1.3 Class类对象分析</h3><h5 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h5><pre class="line-numbers language-none"><code class="language-none">1.Class也是一个类继承与Object
 2.Class类对象不是new出来的,而是系统创建的(ClassLoader的load方法)
 3.对于某个类的Class对象,在内存中只存在一份,因为类只加载一次
 4.Class对象存放在堆中
@@ -613,9 +701,7 @@
 
 <p><img src="https://gitee.com/lml000/tuc/raw/master/images/image-20210729165058998.png" alt="image-20210729165058998"></p>
 <p><img src="https://gitee.com/lml000/tuc/raw/master/images/image-20210805141421785.png" alt="image-20210805141421785"></p>
-<blockquote>
-<h5 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h5></blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// ?不确定的java类型</span>
+<h5 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// ?不确定的java类型</span>
 <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> cls <span class="token operator">=</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span>classAllPath<span class="token punctuation">)</span><span class="token punctuation">;</span>
     cls <span class="token comment">// 显示cls,是哪个类的Class对象。class com.lml.refCommonMethod.Cat</span>
     cls<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 显示cls运行类型 class java.lang.Class</span>
@@ -637,9 +723,7 @@ brand<span class="token punctuation">.</span><span class="token function">set</s
     <span class="token punctuation">}</span>   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://gitee.com/lml000/tuc/raw/master/images/image-20210805144214081.png" alt="image-20210805144214081"></p>
-<blockquote>
-<h5 id="获取Class类对象的6种方式"><a href="#获取Class类对象的6种方式" class="headerlink" title="获取Class类对象的6种方式"></a>获取Class类对象的6种方式</h5></blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//多用于配置文件,读取类全路径,加载类</span>
+<h5 id="获取Class类对象的6种方式"><a href="#获取Class类对象的6种方式" class="headerlink" title="获取Class类对象的6种方式"></a>获取Class类对象的6种方式</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//多用于配置文件,读取类全路径,加载类</span>
 <span class="token number">1.</span>编译期<span class="token operator">:</span><span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span>classAllPath<span class="token punctuation">)</span>
     
 <span class="token comment">//多用于参数传递,构造器</span>
@@ -659,9 +743,7 @@ brand<span class="token punctuation">.</span><span class="token function">set</s
  <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> type <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span>TYPE<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://gitee.com/lml000/tuc/raw/master/images/image-20210805152135749.png" alt="image-20210805152135749"></p>
-<blockquote>
-<h5 id="拥有Class对象范围"><a href="#拥有Class对象范围" class="headerlink" title="拥有Class对象范围"></a>拥有Class对象范围</h5></blockquote>
-<pre class="line-numbers language-none"><code class="language-none">1.外部类,成员内部类,静态内部类,局部内部类,匿名内部类
+<h5 id="Class对象范围"><a href="#Class对象范围" class="headerlink" title="Class对象范围"></a>Class对象范围</h5><pre class="line-numbers language-none"><code class="language-none">1.外部类,成员内部类,静态内部类,局部内部类,匿名内部类
 2.interfface:接口
 3.数组
 4.enum:枚举
@@ -671,9 +753,7 @@ brand<span class="token punctuation">.</span><span class="token function">set</s
 
 
 
-<h3 id="1-4-类加载"><a href="#1-4-类加载" class="headerlink" title="1.4 类加载"></a>1.4 类加载</h3><blockquote>
-<h5 id="ClassLoad加载时期与类型"><a href="#ClassLoad加载时期与类型" class="headerlink" title="ClassLoad加载时期与类型"></a>ClassLoad加载时期与类型</h5></blockquote>
-<p><img src="https://gitee.com/lml000/tuc/raw/master/images/image-20210805154434883.png" alt="image-20210805154434883"></p>
+<h3 id="1-4-类加载"><a href="#1-4-类加载" class="headerlink" title="1.4 类加载"></a>1.4 类加载</h3><h5 id="ClassLoad加载时期与类型"><a href="#ClassLoad加载时期与类型" class="headerlink" title="ClassLoad加载时期与类型"></a>ClassLoad加载时期与类型</h5><p><img src="https://gitee.com/lml000/tuc/raw/master/images/image-20210805154434883.png" alt="image-20210805154434883"></p>
 <pre class="line-numbers language-none"><code class="language-none">ClassLoad
 反射机制是java实现动态语言的关键,也就是通过反射实现类动态加载。
 1.静态加载: 编译时加载相关的类,如果没有则报错,依赖性太强。
@@ -689,9 +769,7 @@ ClassLoad加载时期
 
 
 
-<blockquote>
-<h5 id="类加载过程初解"><a href="#类加载过程初解" class="headerlink" title="类加载过程初解"></a>类加载过程初解</h5></blockquote>
-<pre class="line-numbers language-none"><code class="language-none">类加载三个阶段
+<h5 id="类加载过程初解"><a href="#类加载过程初解" class="headerlink" title="类加载过程初解"></a>类加载过程初解</h5><pre class="line-numbers language-none"><code class="language-none">类加载三个阶段
     1.加载 Loading
     2.连接 Linking
         (1):验证 verification 对文件安全,格式,元数据,字节码,符号引用
@@ -700,11 +778,11 @@ ClassLoad加载时期
     3.初始化 initialization<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://gitee.com/lml000/tuc/raw/master/images/image-20210805162159218.png" alt="image-20210805162159218"></p>
+<blockquote>
 <p>类加载各阶段完成任务</p>
+</blockquote>
 <p><img src="https://gitee.com/lml000/tuc/raw/master/images/image-20210805162555932.png" alt="image-20210805162555932"></p>
-<blockquote>
-<h5 id="类加载过程详解"><a href="#类加载过程详解" class="headerlink" title="类加载过程详解"></a>类加载过程详解</h5></blockquote>
-<blockquote>
+<h5 id="类加载过程详解"><a href="#类加载过程详解" class="headerlink" title="类加载过程详解"></a>类加载过程详解</h5><blockquote>
 <p>加载阶段 Loading</p>
 </blockquote>
 <pre class="line-numbers language-none"><code class="language-none">JVM 在该阶段的主要目的是将字节码从不同的数据源(可能是class、也可能是jar包、甚至网络)转化为二进制字节流加载到内存中,并生成一个代表该类的java.lang.Class对象。
@@ -742,22 +820,11 @@ ClassLoad加载时期
 
 
 
-<h3 id="1-5-常用API"><a href="#1-5-常用API" class="headerlink" title="1.5 常用API"></a>1.5 常用API</h3><blockquote>
-<h5 id="Class类"><a href="#Class类" class="headerlink" title="Class类"></a>Class类</h5></blockquote>
-<p><img src="https://gitee.com/lml000/tuc/raw/master/images/image-20210805203252716.png" alt="image-20210805203252716"></p>
-<blockquote>
-<h5 id="Field类"><a href="#Field类" class="headerlink" title="Field类"></a>Field类</h5></blockquote>
-<p><img src="https://gitee.com/lml000/tuc/raw/master/images/image-20210805203151465.png" alt="image-20210805203151465"></p>
-<blockquote>
-<p>Method类</p>
-</blockquote>
-<p><img src="https://gitee.com/lml000/tuc/raw/master/images/image-20210805204352126.png" alt="image-20210805204352126"></p>
-<blockquote>
-<h5 id="Constructor类"><a href="#Constructor类" class="headerlink" title="Constructor类"></a>Constructor类</h5></blockquote>
-<p><img src="https://gitee.com/lml000/tuc/raw/master/images/image-20210805204448441.png" alt="image-20210805204448441"></p>
-<h3 id="1-6-反射操作对象"><a href="#1-6-反射操作对象" class="headerlink" title="1.6 反射操作对象"></a>1.6 反射操作对象</h3><blockquote>
-<h5 id="反射创建对象-2种"><a href="#反射创建对象-2种" class="headerlink" title="反射创建对象[2种]"></a>反射创建对象[2种]</h5></blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1.</span>调用类中的<span class="token keyword">public</span>修饰的无参构造器
+<h3 id="1-5-常用API"><a href="#1-5-常用API" class="headerlink" title="1.5 常用API"></a>1.5 常用API</h3><h5 id="Class类"><a href="#Class类" class="headerlink" title="Class类"></a>Class类</h5><p><img src="https://gitee.com/lml000/tuc/raw/master/images/image-20210805203252716.png" alt="image-20210805203252716"></p>
+<h5 id="Field类"><a href="#Field类" class="headerlink" title="Field类"></a>Field类</h5><p><img src="https://gitee.com/lml000/tuc/raw/master/images/image-20210805203151465.png" alt="image-20210805203151465"></p>
+<h5 id="Method类"><a href="#Method类" class="headerlink" title="Method类"></a>Method类</h5><p><img src="https://gitee.com/lml000/tuc/raw/master/images/image-20210805204352126.png" alt="image-20210805204352126"></p>
+<h5 id="Constructor类"><a href="#Constructor类" class="headerlink" title="Constructor类"></a>Constructor类</h5><p><img src="https://gitee.com/lml000/tuc/raw/master/images/image-20210805204448441.png" alt="image-20210805204448441"></p>
+<h3 id="1-6-反射操作对象"><a href="#1-6-反射操作对象" class="headerlink" title="1.6 反射操作对象"></a>1.6 反射操作对象</h3><h5 id="反射创建对象-2种"><a href="#反射创建对象-2种" class="headerlink" title="反射创建对象[2种]"></a>反射创建对象[2种]</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1.</span>调用类中的<span class="token keyword">public</span>修饰的无参构造器
 <span class="token number">2.</span>调用类中的指定构造器
     <span class="token operator">--</span><span class="token class-name">Class</span>类相关方法
         <span class="token operator">--</span>newInstance<span class="token operator">:</span>调用类中的无参构造器<span class="token punctuation">,</span>获取对应类的对象。
@@ -783,9 +850,7 @@ declaredConstructor<span class="token punctuation">.</span><span class="token fu
 
 
 
-<blockquote>
-<h5 id="反射操作属性"><a href="#反射操作属性" class="headerlink" title="反射操作属性"></a>反射操作属性</h5></blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1.</span>Class对象<span class="token punctuation">.</span><span class="token function">getDeclaredField</span><span class="token punctuation">(</span>属性名<span class="token punctuation">)</span>
+<h5 id="反射操作属性"><a href="#反射操作属性" class="headerlink" title="反射操作属性"></a>反射操作属性</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1.</span>Class对象<span class="token punctuation">.</span><span class="token function">getDeclaredField</span><span class="token punctuation">(</span>属性名<span class="token punctuation">)</span>
 <span class="token number">2.</span><span class="token function">setAccessible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token number">3.</span>访问<span class="token operator">:</span>
     cls<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span>值<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//设置属性值 obj:对象</span>
@@ -794,13 +859,12 @@ declaredConstructor<span class="token punctuation">.</span><span class="token fu
 
 
 
-<blockquote>
-<h5 id="反射操作方法"><a href="#反射操作方法" class="headerlink" title="反射操作方法"></a>反射操作方法</h5></blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//获取指定长度的对应方法</span>
+<h5 id="反射操作方法"><a href="#反射操作方法" class="headerlink" title="反射操作方法"></a>反射操作方法</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//获取指定长度的对应方法</span>
 <span class="token number">1.</span>cls<span class="token punctuation">.</span><span class="token function">getDeclaredMethod</span><span class="token punctuation">(</span>方法名<span class="token punctuation">,</span>参数<span class="token punctuation">.</span><span class="token keyword">class</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> 
 <span class="token comment">//调用方法 指定参数值</span>
 <span class="token number">2.</span>cls<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span>参数<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
 <span class="token comment">//如是静态方法 obj对象 可传null</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
 
 
@@ -1467,6 +1531,100 @@ declaredConstructor<span class="token punctuation">.</span><span class="token fu
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lmlksy/lmlksy.github.io/libs/codeBlock/codeShrink.js"></script>
 
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/lmlksy/lmlksy.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h3, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h3, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 
