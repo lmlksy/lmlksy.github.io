@@ -2023,7 +2023,7 @@ HASH，就是一个KEY对应一个值，一个指针，指向了一个区域。 
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h1, h3, >h5'
+            headingSelector: 'h1, h3, h5'
         });
 
         // modify the toc link href to support Chinese.
@@ -2035,7 +2035,7 @@ HASH，就是一个KEY对应一个值，一个指针，指向了一个区域。 
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h1, h3, >h5').each(function () {
+        $('#articleContent').children('h1, h3, h5').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -2169,7 +2169,7 @@ HASH，就是一个KEY对应一个值，一个指针，指向了一个区域。 
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">24.2k</span>
+                        class="white-color">24.1k</span>
             
             
             

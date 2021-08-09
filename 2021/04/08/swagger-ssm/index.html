@@ -1570,7 +1570,7 @@ SecurityBasicAuthFilter   //密码账号验证<span aria-hidden="true" class="li
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h1, h3, >h5'
+            headingSelector: 'h1, h3, h5'
         });
 
         // modify the toc link href to support Chinese.
@@ -1582,7 +1582,7 @@ SecurityBasicAuthFilter   //密码账号验证<span aria-hidden="true" class="li
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h1, h3, >h5').each(function () {
+        $('#articleContent').children('h1, h3, h5').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -1716,7 +1716,7 @@ SecurityBasicAuthFilter   //密码账号验证<span aria-hidden="true" class="li
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">24.2k</span>
+                        class="white-color">24.1k</span>
             
             
             
